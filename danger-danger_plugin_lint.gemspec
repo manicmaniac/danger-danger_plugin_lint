@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
+require_relative 'lib/danger_plugin_lint/version'
+
 Gem::Specification.new do |spec|
   spec.name = 'danger-danger_plugin_lint'
-  spec.version = '0.1.0'
+  spec.version = DangerPluginLint::VERSION
   spec.authors = ['Ryosuke Ito']
   spec.email = ['rito.0305@gmail.com']
 
