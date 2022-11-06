@@ -2,11 +2,14 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in danger-danger_plugin_lint.gemspec
 gemspec
 
-gem "rake", "~> 13.0"
-
-gem "rspec", "~> 3.0"
-
-gem "rubocop", "~> 1.21"
+gem "danger"
+gem "danger-rubocop", require: false
+gem "rake"
+gem "rspec"
+gem "rubocop", require: false
+gem "rubocop-rake", require: false
+gem "rubocop-rspec", require: false
+gem "simplecov", require: false
+gem "yard", require: false
