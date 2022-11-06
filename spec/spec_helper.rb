@@ -1,15 +1,13 @@
 # frozen_string_literal: true
 
-require 'danger/danger_plugin_lint'
+ROOT = File.expand_path('..', __dir__)
+$LOAD_PATH.unshift(File.join(ROOT, 'lib'), File.join(ROOT, 'spec'))
+
+require 'danger_plugin'
+require 'support/helpers'
 
 RSpec.configure do |config|
-  # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = '.rspec_status'
-
-  # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!
-
-  config.expect_with :rspec do |c|
-    c.syntax = :expect
-  end
+  config.filter_gems_from_backtrace 'bundler'
 end
