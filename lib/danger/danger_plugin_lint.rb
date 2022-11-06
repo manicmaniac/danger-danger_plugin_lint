@@ -15,7 +15,7 @@ module Danger
       linter = PluginLinter.new(json)
       linter.lint
       display_rules(:fail, linter.errors)
-      display_rules(:warn, linter.warnings)
+      display_rules(warnings_as_errors ? :fail : :warn, linter.warnings)
     end
 
     private
