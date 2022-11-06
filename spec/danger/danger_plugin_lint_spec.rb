@@ -11,6 +11,16 @@ RSpec.describe Danger::DangerPluginLint do
     let(:errors) { dangerfile.status_report[:errors] }
     let(:refs) { [fixture('test_plugin.rb')] }
 
+    context 'when refs is a string' do
+      let(:refs) { fixture('test_plugin.rb') }
+
+      it 'reports warnings and errors about the given path' do
+        dangerfile.plugin_lint.lint_docs(refs)
+        expect(warnings).to have_attributes size: 3
+        expect(errors).to have_attributes size: 3
+      end
+    end
+
     context 'when warnings_as_errors is true' do
       it 'reports everything as error' do
         dangerfile.plugin_lint.lint_docs(refs, warnings_as_errors: true)
