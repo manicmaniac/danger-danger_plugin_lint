@@ -6,6 +6,6 @@ RSpec.describe Danger::DangerPluginLint do
   end
 
   it 'does something useful' do
-    expect(false).to be(true)
+    expect(false).to be(true) # rubocop:disable RSpec/ExpectActual
   end
 end
