@@ -6,6 +6,7 @@ gemspec
 
 gem 'danger'
 gem 'danger-rubocop', require: false
+gem 'debug', '>= 1.0.0'
 gem 'guard', require: false
 gem 'guard-rspec', require: false
 gem 'rake'
