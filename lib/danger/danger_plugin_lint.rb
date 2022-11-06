@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'danger'
+
 module Danger
   class DangerPluginLint < Plugin
     def lint_docs(refs = nil, warnings_as_errors: false)
