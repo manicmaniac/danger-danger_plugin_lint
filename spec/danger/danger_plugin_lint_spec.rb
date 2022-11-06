@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 RSpec.describe Danger::DangerPluginLint do
-  it "has a version number" do
-    expect(Danger::DangerPluginLint::VERSION).not_to be nil
+  it 'has a version number' do
+    expect(Danger::DangerPluginLint::VERSION).not_to be_nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it 'does something useful' do
+    expect(false).to be(true)
   end
 end
