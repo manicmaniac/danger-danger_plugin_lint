@@ -3,7 +3,22 @@
 require 'danger'
 
 module Danger
+  # Analyze Danger plugin or files and report problems.
+  # This plugin does the almost same as `danger plugins lint` but it runs on Danger.
+  #
+  # @example To run this plugin on your plugin's repo, you just run it in your Dangerfile.
+  #
+  #          plugin_lint.lint_docs
+  #
+  # @see file:README.md
+  # @tags danger, plugin, lint
   class DangerPluginLint < Plugin
+    # Analyze plugin files and detect documentation problems.
+    #
+    # @param [Array] refs                 Paths to files or gems to be linted.
+    #                                     If `nil` is given, it automatically finds files.
+    # @param [Boolean] warnings_as_errors If `true`, treat all warnings as errors.
+    # @return [void]
     def lint_docs(refs = nil, warnings_as_errors: false)
       file_resolver = PluginFileResolver.new(refs)
       data = file_resolver.resolve
