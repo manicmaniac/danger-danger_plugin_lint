@@ -12,7 +12,7 @@ module Danger
   #
   # @see file:README.md
   # @tags danger, plugin, lint
-  class DangerPluginLint < Plugin 
+  class DangerPluginLint < Plugin
     # Analyze plugin files and detect documentation problems.
     #
     # @param [Array] refs                 Paths to files or gems to be linted.
