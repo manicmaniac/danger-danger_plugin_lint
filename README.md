@@ -1,5 +1,7 @@
 # danger-danger\_plugin\_lint
 
+[![Test](https://github.com/manicmaniac/danger-danger_plugin_lint/actions/workflows/test.yml/badge.svg)](https://github.com/manicmaniac/danger-danger_plugin_lint/actions/workflows/test.yml)
+
 A Danger plugin to lint Danger plugin.
 
 This plugin does the almost same thing as `danger plugins lint` command but it runs on Danger.
