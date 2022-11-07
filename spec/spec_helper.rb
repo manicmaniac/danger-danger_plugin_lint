@@ -3,6 +3,11 @@
 ROOT = File.expand_path('..', __dir__)
 $LOAD_PATH.unshift(File.join(ROOT, 'lib'), File.join(ROOT, 'spec'))
 
+require 'simplecov'
+SimpleCov.start do
+  load_profile 'test_frameworks'
+  enable_coverage :branch
+end
 require 'danger_plugin'
 require 'support/helpers'
 
