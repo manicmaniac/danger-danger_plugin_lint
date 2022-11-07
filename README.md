@@ -1,6 +1,8 @@
 # danger-danger\_plugin\_lint
 
 [![Test](https://github.com/manicmaniac/danger-danger_plugin_lint/actions/workflows/test.yml/badge.svg)](https://github.com/manicmaniac/danger-danger_plugin_lint/actions/workflows/test.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d52bec431b82f149bc59/maintainability)](https://codeclimate.com/github/manicmaniac/danger-danger_plugin_lint/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d52bec431b82f149bc59/test_coverage)](https://codeclimate.com/github/manicmaniac/danger-danger_plugin_lint/test_coverage)
 [![Gem Version](https://badge.fury.io/rb/danger-danger_plugin_lint.svg)](https://rubygems.org/gems/danger-danger_plugin_lint)
 
 A Danger plugin to lint Danger plugin.
