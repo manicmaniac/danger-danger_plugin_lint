@@ -5,6 +5,8 @@ require 'danger'
 module Danger
   class TestPlugin < Plugin
     def test_method; end
+
+    def test_method_1; end
   end
 end
 
