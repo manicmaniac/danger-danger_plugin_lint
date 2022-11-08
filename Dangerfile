@@ -2,4 +2,4 @@
 
 rubocop.lint inline_comment: true
 
-plugin_lint.lint_docs
+plugin_lint.lint_docs 'spec/support/fixtures/test_plugin.rb'
