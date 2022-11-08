@@ -23,8 +23,9 @@ RSpec.describe Danger::DangerPluginLint do
       let(:refs) { [] }
 
       before do
-        allow(Dir).to receive(:glob).and_call_original
-        allow(Dir).to receive(:glob).with(File.join('.', 'lib/**/*.rb')).and_return [plugin_path]
+        resolver = instance_double(Danger::PluginFileResolver)
+        allow(resolver).to receive(:resolve).and_return paths: [plugin_path], gems: []
+        allow(Danger::PluginFileResolver).to receive(:new).with(nil).and_return resolver
       end
 
       it_behaves_like 'running with default arguments'
