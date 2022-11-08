@@ -38,9 +38,25 @@ module Danger
 
     def display_rules(method, rules)
       rules.each do |rule|
+        message = <<~GFM
+          **#{rule.title}** - **#{rule.metadata[:name]}** (#{rule.type}):
+          #{rule.description}
+          #{link(rule.ref)}
+        GFM
         abs_file, line = rule.metadata[:files][0]
         file = Pathname.new(abs_file).relative_path_from(Dir.pwd).to_s
-        public_send(method, rule.description, file: file, line: line)
+        public_send(method, message, file: file, line: line)
+      end
+    end
+
+    def link(ref)
+      case ref
+      when Range
+        "@see - https://github.com/dbgrandi/danger-prose/blob/v2.0.0/lib/danger_plugin.rb#L#{ref.min}-L#{ref.max}"
+      when Integer
+        "@see - https://github.com/dbgrandi/danger-prose/blob/v2.0.0/lib/danger_plugin.rb#L#{ref}"
+      else
+        '@see - https://github.com/dbgrandi/danger-prose/blob/v2.0.0/lib/danger_plugin.rb'
       end
     end
   end

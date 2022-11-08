@@ -10,11 +10,21 @@ RSpec.describe Danger::DangerPluginLint do
     let(:plugin_path) { fixture('test_plugin.rb') }
 
     shared_examples 'running with default arguments' do
-      it 'reports warnings and errors' do
-        dangerfile.plugin_lint.lint_docs(*refs)
-        expect(dangerfile.status_report).to include(
-          warnings: have_attributes(size: 3),
-          errors: have_attributes(size: 3)
+      before { dangerfile.plugin_lint.lint_docs(*refs) }
+
+      it 'reports errors' do
+        expect(dangerfile.status_report[:errors]).to contain_exactly(
+          a_string_starting_with('**Description Markdown** - **TestPlugin** (class):'),
+          a_string_starting_with('**Examples** - **TestPlugin** (class):'),
+          a_string_starting_with('**Description** - **test_method** (method):')
+        )
+      end
+
+      it 'reports warnings' do
+        expect(dangerfile.status_report[:warnings]).to contain_exactly(
+          a_string_starting_with('**Tags** - **TestPlugin** (class):'),
+          a_string_starting_with('**References** - **TestPlugin** (class):'),
+          a_string_starting_with('**Return Type** - **test_method** (method):')
         )
       end
     end
