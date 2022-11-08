@@ -20,7 +20,8 @@ module Danger
     # @param [Boolean] warnings_as_errors If `true`, treat all warnings as errors.
     # @return [void]
     def lint_docs(*refs, warnings_as_errors: false)
-      file_resolver = PluginFileResolver.new(refs.empty? ? nil : refs.flatten)
+      refs = refs.flatten.compact
+      file_resolver = PluginFileResolver.new(refs.empty? ? nil : refs)
       data = file_resolver.resolve
 
       parser = PluginParser.new(data[:paths], verbose: true)
