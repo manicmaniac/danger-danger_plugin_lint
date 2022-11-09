@@ -50,14 +50,15 @@ module Danger
     end
 
     def link(ref)
-      case ref
-      when Range
-        "@see - https://github.com/dbgrandi/danger-prose/blob/v2.0.0/lib/danger_plugin.rb#L#{ref.min}-L#{ref.max}"
-      when Integer
-        "@see - https://github.com/dbgrandi/danger-prose/blob/v2.0.0/lib/danger_plugin.rb#L#{ref}"
-      else
-        '@see - https://github.com/dbgrandi/danger-prose/blob/v2.0.0/lib/danger_plugin.rb'
-      end
+      url = case ref
+            when Range
+              "https://github.com/dbgrandi/danger-prose/blob/v2.0.0/lib/danger_plugin.rb#L#{ref.min}-L#{ref.max}"
+            when Integer
+              "https://github.com/dbgrandi/danger-prose/blob/v2.0.0/lib/danger_plugin.rb#L#{ref}"
+            else
+              'https://github.com/dbgrandi/danger-prose/blob/v2.0.0/lib/danger_plugin.rb'
+            end
+      %(@see - <a href="#{url}">#{url}</a>)
     end
   end
 end
