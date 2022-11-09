@@ -40,7 +40,7 @@ module Danger
       rules.each do |rule|
         message = <<~GFM
           **#{rule.title}** - **#{rule.metadata[:name]}** (#{rule.type}):
-          #{rule.description}
+          #{to_html(rule.description)}
           #{link(rule.ref)}
         GFM
         abs_file, line = rule.metadata[:files][0]
@@ -59,6 +59,13 @@ module Danger
               'https://github.com/dbgrandi/danger-prose/blob/v2.0.0/lib/danger_plugin.rb'
             end
       %(@see - <a href="#{url}">#{url}</a>)
+    end
+
+    def to_html(markdown)
+      # As the current Danger uses nothing but backquotes in syntax of Markdown,
+      # this method just replaces backquotes to `<code>` tag.
+      # @see https://github.com/danger/danger/blob/v9.0.0/lib/danger/plugin_support/plugin_linter.rb#L93-L128
+      markdown.gsub(/`(.*?)`/, '<code>\1</code>')
     end
   end
 end
