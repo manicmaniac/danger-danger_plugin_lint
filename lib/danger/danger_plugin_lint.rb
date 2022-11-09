@@ -46,11 +46,11 @@ module Danger
     end
 
     def format_rule(rule)
-      <<~GFM
-        **#{rule.title}** - **#{rule.metadata[:name]}** (#{rule.type}):
+      <<~HTML
+        <strong>#{rule.title}</strong> - <strong>#{rule.metadata[:name]}</strong> (#{rule.type}):
         #{to_html(rule.description)}
         #{link(rule.ref)}
-      GFM
+      HTML
     end
 
     def link(ref)

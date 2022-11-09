@@ -14,17 +14,17 @@ RSpec.describe Danger::DangerPluginLint do
 
       it 'reports errors' do
         expect(dangerfile.status_report[:errors]).to contain_exactly(
-          a_string_starting_with('**Description Markdown** - **TestPlugin** (class):'),
-          a_string_starting_with('**Examples** - **TestPlugin** (class):'),
-          a_string_starting_with('**Description** - **test_method** (method):')
+          a_string_starting_with('<strong>Description Markdown</strong> - <strong>TestPlugin</strong> (class):'),
+          a_string_starting_with('<strong>Examples</strong> - <strong>TestPlugin</strong> (class):'),
+          a_string_starting_with('<strong>Description</strong> - <strong>test_method</strong> (method):')
         )
       end
 
       it 'reports warnings' do
         expect(dangerfile.status_report[:warnings]).to contain_exactly(
-          a_string_starting_with('**Tags** - **TestPlugin** (class):'),
-          a_string_starting_with('**References** - **TestPlugin** (class):'),
-          a_string_starting_with('**Return Type** - **test_method** (method):')
+          a_string_starting_with('<strong>Tags</strong> - <strong>TestPlugin</strong> (class):'),
+          a_string_starting_with('<strong>References</strong> - <strong>TestPlugin</strong> (class):'),
+          a_string_starting_with('<strong>Return Type</strong> - <strong>test_method</strong> (method):')
         )
       end
     end
