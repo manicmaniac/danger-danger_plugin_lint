@@ -38,26 +38,38 @@ module Danger
 
     def display_rules(method, rules)
       rules.each do |rule|
-        message = <<~GFM
-          **#{rule.title}** - **#{rule.metadata[:name]}** (#{rule.type}):
-          #{rule.description}
-          #{link(rule.ref)}
-        GFM
+        message = format_rule(rule)
         abs_file, line = rule.metadata[:files][0]
         file = Pathname.new(abs_file).relative_path_from(Dir.pwd).to_s
         public_send(method, message, file: file, line: line)
       end
     end
 
+    def format_rule(rule)
+      <<~HTML
+        <strong>#{rule.title}</strong> - <strong>#{rule.metadata[:name]}</strong> (#{rule.type}):
+        #{to_html(rule.description)}
+        #{link(rule.ref)}
+      HTML
+    end
+
     def link(ref)
-      case ref
-      when Range
-        "@see - https://github.com/dbgrandi/danger-prose/blob/v2.0.0/lib/danger_plugin.rb#L#{ref.min}-L#{ref.max}"
-      when Integer
-        "@see - https://github.com/dbgrandi/danger-prose/blob/v2.0.0/lib/danger_plugin.rb#L#{ref}"
-      else
-        '@see - https://github.com/dbgrandi/danger-prose/blob/v2.0.0/lib/danger_plugin.rb'
-      end
+      url = case ref
+            when Range
+              "https://github.com/dbgrandi/danger-prose/blob/v2.0.0/lib/danger_plugin.rb#L#{ref.min}-L#{ref.max}"
+            when Integer
+              "https://github.com/dbgrandi/danger-prose/blob/v2.0.0/lib/danger_plugin.rb#L#{ref}"
+            else
+              'https://github.com/dbgrandi/danger-prose/blob/v2.0.0/lib/danger_plugin.rb'
+            end
+      %(@see - <a href="#{url}">#{url}</a>)
+    end
+
+    def to_html(markdown)
+      # As the current Danger uses nothing but backquotes in syntax of Markdown,
+      # this method just replaces backquotes to `<code>` tag.
+      # @see https://github.com/danger/danger/blob/v9.0.0/lib/danger/plugin_support/plugin_linter.rb#L93-L128
+      markdown.gsub(/`(.*?)`/, '<code>\1</code>')
     end
   end
 end
