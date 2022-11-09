@@ -38,15 +38,19 @@ module Danger
 
     def display_rules(method, rules)
       rules.each do |rule|
-        message = <<~GFM
-          **#{rule.title}** - **#{rule.metadata[:name]}** (#{rule.type}):
-          #{to_html(rule.description)}
-          #{link(rule.ref)}
-        GFM
+        message = format_rule(rule)
         abs_file, line = rule.metadata[:files][0]
         file = Pathname.new(abs_file).relative_path_from(Dir.pwd).to_s
         public_send(method, message, file: file, line: line)
       end
+    end
+
+    def format_rule(rule)
+      <<~GFM
+        **#{rule.title}** - **#{rule.metadata[:name]}** (#{rule.type}):
+        #{to_html(rule.description)}
+        #{link(rule.ref)}
+      GFM
     end
 
     def link(ref)
