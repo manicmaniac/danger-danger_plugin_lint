@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    danger-danger_plugin_lint (0.1.0)
+    danger-danger_plugin_lint (0.2.0)
       danger-plugin-api (~> 1.0)
 
 GEM
