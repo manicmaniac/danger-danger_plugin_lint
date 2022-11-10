@@ -9,6 +9,8 @@ A Danger plugin to lint Danger plugin.
 
 This plugin does the almost same thing as `danger plugins lint` command but it runs on Danger.
 
+<img width="600" alt="GitHub comment example" src="https://user-images.githubusercontent.com/1672393/200974321-bb6a42d4-ce8e-4fc0-96f9-a8a3fc82b83c.png">
+
 ## Installation
 
 Install the gem and add to the application's Gemfile by executing:
