@@ -181,8 +181,7 @@ GEM
     yard (0.9.34)
 
 PLATFORMS
-  x86_64-darwin-19
-  x86_64-linux
+  ruby
 
 DEPENDENCIES
   danger
