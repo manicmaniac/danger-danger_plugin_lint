@@ -27,6 +27,10 @@ RSpec.describe Danger::DangerPluginLint do
           a_string_starting_with('<strong>Return Type</strong> - <strong>test_method</strong> (method):')
         )
       end
+
+      it 'does not contain GitHub mention' do
+        expect(dangerfile.status_report[:errors]).not_to include /@[A-Za-z0-9]+/
+      end
     end
 
     context 'when refs is not specified' do

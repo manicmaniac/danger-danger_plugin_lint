@@ -62,7 +62,7 @@ module Danger
             else
               'https://github.com/dbgrandi/danger-prose/blob/v2.0.0/lib/danger_plugin.rb'
             end
-      %(@see - <a href="#{url}">#{url}</a>)
+      %(See - <a href="#{url}">#{url}</a>)
     end
 
     def to_html(markdown)
