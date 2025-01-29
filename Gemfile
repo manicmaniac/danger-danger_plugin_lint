@@ -19,4 +19,4 @@ gem 'yard', '~> 0.9', require: false
 
 # `ffi` is a transitive dependency of `guard`.
 # The recent version of `ffi` dropped support of `rubygems` bundled with Ruby <= 3.0.
-gem 'ffi', '< 1.17', require: false
+gem 'ffi', '< 1.18', require: false
