@@ -4,15 +4,19 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'danger'
+gem 'danger', '~> 9.5'
 gem 'danger-rubocop', require: false
 gem 'debug', '>= 1.0.0'
-gem 'guard', require: false
-gem 'guard-rspec', require: false
-gem 'rake'
-gem 'rspec'
-gem 'rubocop', require: false
-gem 'rubocop-rake', require: false
-gem 'rubocop-rspec', require: false
-gem 'simplecov', require: false
-gem 'yard', require: false
+gem 'guard', '~> 2.19', require: false
+gem 'guard-rspec', '~> 4.7', require: false
+gem 'rake', '~> 13.2'
+gem 'rspec', '~> 3.13'
+gem 'rubocop', '~> 1.71', require: false
+gem 'rubocop-rake', '~> 0.6.0', require: false
+gem 'rubocop-rspec', '~> 2.31', require: false
+gem 'simplecov', '~> 0.22.0', require: false
+gem 'yard', '~> 0.9', require: false
+
+# `ffi` is a transitive dependency of `guard`.
+# The recent version of `ffi` dropped support of `rubygems` bundled with Ruby <= 3.0.
+gem 'ffi', '< 1.17', require: false
