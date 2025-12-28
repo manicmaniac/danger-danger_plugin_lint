@@ -55,7 +55,7 @@ GEM
     faraday-http-cache (2.5.1)
       faraday (>= 0.8)
     faraday-net_http (3.0.2)
-    ffi (1.16.3)
+    ffi (1.17.2)
     formatador (1.2.3)
       reline
     git (1.19.1)
@@ -201,7 +201,7 @@ DEPENDENCIES
   danger-rubocop
   debug (>= 1.0.0)
   faraday-net_http
-  ffi (< 1.17)
+  ffi (< 1.18)
   guard (~> 2.19)
   guard-rspec (~> 4.7)
   rake (~> 13.2)
