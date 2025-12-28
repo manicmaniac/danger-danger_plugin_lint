@@ -200,6 +200,7 @@ DEPENDENCIES
   danger-danger_plugin_lint!
   danger-rubocop
   debug (>= 1.0.0)
+  faraday-net_http
   ffi (< 1.17)
   guard (~> 2.19)
   guard-rspec (~> 4.7)

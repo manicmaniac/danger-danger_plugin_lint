@@ -17,6 +17,9 @@ gem 'rubocop-rspec', '~> 3.0', require: false
 gem 'simplecov', '~> 0.22.0', require: false
 gem 'yard', '~> 0.9', require: false
 
+# Faraday 2.0+ requires explicit adapter installation
+gem 'faraday-net_http'
+
 # `ffi` is a transitive dependency of `guard`.
 # The recent version of `ffi` dropped support of `rubygems` bundled with Ruby <= 3.0.
 gem 'ffi', '< 1.17', require: false
