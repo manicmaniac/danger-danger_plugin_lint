@@ -14,7 +14,7 @@ gem 'rspec', '~> 3.13'
 gem 'rubocop', '~> 1.71', require: false
 gem 'rubocop-rake', '~> 0.7.0', require: false
 gem 'rubocop-rspec', '~> 3.0', require: false
-gem 'simplecov', '~> 0.22.0', require: false
+gem 'simplecov', '~> 1.0.0', require: false
 gem 'yard', '~> 0.9', require: false
 
 # Faraday 2.0+ requires explicit adapter installation
